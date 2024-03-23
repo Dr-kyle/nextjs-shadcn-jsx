@@ -1,13 +1,12 @@
 import prisma from "@/lib/db";
-function Page() {
+async function Page() {
 
 
-  const res = prisma.User.findFirst({
-    where: {name: 'kyle'}
-  })
+  const res = await prisma.User.findMany()
+  console.log(res)
 
   return ( <div>
-    {res}
+    {res.length}
   </div> );
 }
 
